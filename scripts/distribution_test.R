@@ -1,30 +1,23 @@
-qiime_avg = function(x){
-  summ = 0
-  count = 0
+#Return a data frame with the summary of vlaues 
+#on a specific data set in a Frame
+
+Summary_info = function(data){
   
-  for(i in 2:ncol(x)){
-    if(x[i] != 0){
-      summ = summ+x[i]
-      count = count +1
-    }
-  }
+  df = data.frame(mean = mean(data),
+                  sd = sd(data),
+                  min = min(data),
+                  max = max(data))
   
-  if(count == 0){
-    print(" No data !")
-    return(count)
-    
-  }
-  else{
-    result = summ/count
-    cat("Average: ",result,"\n")
-    return(result)
-  }
+  return(df)
   
 }
 
-row_table_avg = function(x){
-  for(i in 1:nrow(x)){
-    z = data.matrix(x[i,])
-    qiime_avg(z)
-  }
+Distribution_test = function(data){
+  
+  summ = Summary_info(data)
+  
+  hist(data,probability=T)
+  #curve(dnorm(x,summ$mean,summ$sd),col = "red",)
+  
+  
 }
