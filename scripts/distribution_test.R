@@ -1,7 +1,7 @@
 #Return a data frame with the summary of vlaues 
 #on a specific data set in a Frame
 
-summary_info = function(data){
+summary_info = function(data,name=NULL){
   
   df = data.frame(mean = mean(data),
                   sd = sd(data),
@@ -9,6 +9,16 @@ summary_info = function(data){
                   max = max(data))
   
   return(df)
+  
+}
+
+
+#to extract the values of a certain vector on the 
+#data frame that compose the imported datum
+generate_vector = function(data,line=1){
+  temp = data.matrix(data[line,2:ncol(data)])
+  temp = temp[temp != 0]
+  return(temp)
   
 }
 
