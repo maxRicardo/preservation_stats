@@ -1,0 +1,49 @@
+P-Value Test Per BodySite (Ultralow against the world!)
+========================================================
+
+
+#reading from table file
+```{r,echo=FALSE}
+source("~/git/preservation_stats/scripts/distribution_test.R")
+feces <- read.csv("~/git/preservation_stats/presv_fig1_data/feces_fig1.csv")
+oral <- read.csv("~/git/preservation_stats/presv_fig1_data/oral_fig1.csv")
+skin <- read.csv("~/git/preservation_stats/presv_fig1_data/skin_fig1.csv")
+```
+
+Feces
+--------------------
+
+generating variables per Preservation Method:  
+
+```{r}
+feces_ultralow = parse_vector(feces,1)
+feces_nitrogen = parse_vector(feces,2)
+feces_Phen_CL = parse_vector(feces,3)
+feces_Fresh = parse_vector(feces,4)
+```
+
+Normality Test with Shapiro-Wilk Test :
+
+```{r,echo=FALSE}
+shapiro.test(feces_ultralow)
+
+shapiro.test(feces_nitrogen)
+
+shapiro.test(feces_Phen_CL)
+
+shapiro.test(feces_Fresh)
+
+```
+
+Testing difference significance using Kolmogorov-Smirnov & Wilcoxon Test :  
+-----------------------------------------------------------------------------
+
+```{r}
+ks.test(feces_ultralow,feces_nitrogen)
+wilcox.test(feces_ultralow,feces_nitrogen)
+
+ks.test(feces_ultralow,feces_Phen_CL)
+wilcox.test(feces_ultralow,feces_Phen_CL)
+
+ks.test(feces_ultralow,feces_Fresh)
+wilcox.test(feces_ultralow,feces_Fresh)

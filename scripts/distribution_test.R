@@ -15,7 +15,8 @@ summary_info = function(data,name=NULL){
 
 #to extract the values of a certain vector on the 
 #data frame that compose the imported datum
-generate_vector = function(data,line=1){
+
+parse_vector = function(data,line=1){
   temp = data.matrix(data[line,2:ncol(data)])
   temp = temp[temp != 0]
   return(temp)

@@ -1,0 +1,49 @@
+P-Value Test Per BodySite (Ultralow against the world!)
+========================================================
+
+
+#reading from table file
+```{r,echo=FALSE}
+source("~/git/preservation_stats/scripts/distribution_test.R")
+skin <- read.csv("~/git/preservation_stats/presv_fig1_data/skin_fig1.csv")
+oral <- read.csv("~/git/preservation_stats/presv_fig1_data/oral_fig1.csv")
+skin <- read.csv("~/git/preservation_stats/presv_fig1_data/skin_fig1.csv")
+```
+
+skin
+--------------------
+
+generating variables per Preservation Method:  
+
+```{r}
+skin_ultralow = parse_vector(skin,1)
+skin_nitrogen = parse_vector(skin,2)
+skin_Phen_CL = parse_vector(skin,3)
+skin_Fresh = parse_vector(skin,4)
+```
+
+Normality Test with Shapiro-Wilk Test :
+
+```{r,echo=FALSE}
+shapiro.test(skin_ultralow)
+
+shapiro.test(skin_nitrogen)
+
+shapiro.test(skin_Phen_CL)
+
+shapiro.test(skin_Fresh)
+
+```
+
+Testing difference significance using Kolmogorov-Smirnov & Wilcoxon Test :  
+-----------------------------------------------------------------------------
+
+```{r}
+ks.test(skin_ultralow,skin_nitrogen)
+wilcox.test(skin_ultralow,skin_nitrogen)
+
+ks.test(skin_ultralow,skin_Phen_CL)
+wilcox.test(skin_ultralow,skin_Phen_CL)
+
+ks.test(skin_ultralow,skin_Fresh)
+wilcox.test(skin_ultralow,skin_Fresh)

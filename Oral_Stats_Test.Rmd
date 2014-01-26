@@ -1,0 +1,49 @@
+P-Value Test Per BodySite (Ultralow against the world!)
+========================================================
+
+
+#reading from table file
+```{r,echo=FALSE}
+source("~/git/preservation_stats/scripts/distribution_test.R")
+oral <- read.csv("~/git/preservation_stats/presv_fig1_data/oral_fig1.csv")
+oral <- read.csv("~/git/preservation_stats/presv_fig1_data/oral_fig1.csv")
+skin <- read.csv("~/git/preservation_stats/presv_fig1_data/skin_fig1.csv")
+```
+
+oral
+--------------------
+
+generating variables per Preservation Method:  
+
+```{r}
+oral_ultralow = parse_vector(oral,1)
+oral_nitrogen = parse_vector(oral,2)
+oral_Phen_CL = parse_vector(oral,3)
+oral_Fresh = parse_vector(oral,4)
+```
+
+Normality Test with Shapiro-Wilk Test :
+
+```{r,echo=FALSE}
+shapiro.test(oral_ultralow)
+
+shapiro.test(oral_nitrogen)
+
+shapiro.test(oral_Phen_CL)
+
+shapiro.test(oral_Fresh)
+
+```
+
+Testing difference significance using Kolmogorov-Smirnov & Wilcoxon Test :  
+-----------------------------------------------------------------------------
+
+```{r}
+ks.test(oral_ultralow,oral_nitrogen)
+wilcox.test(oral_ultralow,oral_nitrogen,alternative="greater",exact=T)
+
+ks.test(oral_ultralow,oral_Phen_CL)
+wilcox.test(oral_ultralow,oral_Phen_CL,alternative="greater")
+
+ks.test(oral_ultralow,oral_Fresh)
+wilcox.test(oral_ultralow,oral_Fresh,alternative="greater")
