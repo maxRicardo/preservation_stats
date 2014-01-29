@@ -6,8 +6,6 @@ P-Value Test Per BodySite (Ultralow against the world!)
 ```{r,echo=FALSE}
 source("~/git/preservation_stats/scripts/distribution_test.R")
 oral <- read.csv("~/git/preservation_stats/presv_fig1_data/oral_fig1.csv")
-oral <- read.csv("~/git/preservation_stats/presv_fig1_data/oral_fig1.csv")
-skin <- read.csv("~/git/preservation_stats/presv_fig1_data/skin_fig1.csv")
 ```
 
 oral
@@ -38,12 +36,17 @@ shapiro.test(oral_Fresh)
 Testing difference significance using Kolmogorov-Smirnov & Wilcoxon Test :  
 -----------------------------------------------------------------------------
 
+
 ```{r}
 ks.test(oral_ultralow,oral_nitrogen)
-wilcox.test(oral_ultralow,oral_nitrogen,alternative="greater",exact=T)
+wilcox.test(oral_ultralow,oral_nitrogen)
+wilcox.test(oral_ultralow,oral_nitrogen,paired=T)
 
 ks.test(oral_ultralow,oral_Phen_CL)
-wilcox.test(oral_ultralow,oral_Phen_CL,alternative="greater")
+wilcox.test(oral_ultralow,oral_Phen_CL)
+wilcox.test(oral_ultralow,oral_Phen_CL,paired=T)
 
 ks.test(oral_ultralow,oral_Fresh)
-wilcox.test(oral_ultralow,oral_Fresh,alternative="greater")
+wilcox.test(oral_ultralow,oral_Fresh)
+wilcox.test(oral_ultralow,oral_Fresh,paired=T)
+```

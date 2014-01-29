@@ -247,6 +247,17 @@ skin_Fresh = parse_vector(skin, 4)
 ## alternative hypothesis: true location shift is not equal to 0
 </code></pre>
 
+<pre><code class="r">wilcox.test(skin_ultralow, skin_nitrogen, paired = T)
+</code></pre>
+
+<pre><code>## 
+##  Wilcoxon signed rank test
+## 
+## data:  skin_ultralow and skin_nitrogen
+## V = 4, p-value = 0.4375
+## alternative hypothesis: true location shift is not equal to 0
+</code></pre>
+
 <pre><code class="r">
 ks.test(skin_ultralow, skin_Phen_CL)
 </code></pre>
@@ -270,6 +281,17 @@ ks.test(skin_ultralow, skin_Phen_CL)
 ## alternative hypothesis: true location shift is not equal to 0
 </code></pre>
 
+<pre><code class="r">wilcox.test(skin_ultralow, skin_Phen_CL, paired = T)
+</code></pre>
+
+<pre><code>## 
+##  Wilcoxon signed rank test
+## 
+## data:  skin_ultralow and skin_Phen_CL
+## V = 15, p-value = 0.0625
+## alternative hypothesis: true location shift is not equal to 0
+</code></pre>
+
 <pre><code class="r">
 ks.test(skin_ultralow, skin_Fresh)
 </code></pre>
@@ -290,6 +312,17 @@ ks.test(skin_ultralow, skin_Fresh)
 ## 
 ## data:  skin_ultralow and skin_Fresh
 ## W = 13, p-value = 1
+## alternative hypothesis: true location shift is not equal to 0
+</code></pre>
+
+<pre><code class="r">wilcox.test(skin_ultralow, skin_Fresh, paired = T)
+</code></pre>
+
+<pre><code>## 
+##  Wilcoxon signed rank test
+## 
+## data:  skin_ultralow and skin_Fresh
+## V = 7, p-value = 1
 ## alternative hypothesis: true location shift is not equal to 0
 </code></pre>
 

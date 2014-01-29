@@ -60,6 +60,7 @@ Testing difference significance using Kolmogorov-Smirnov & Wilcoxon Test :
 -----------------------------------------------------------------------------
 
 
+
 ```r
 ks.test(oral_ultralow, oral_nitrogen)
 ```
@@ -74,7 +75,7 @@ ks.test(oral_ultralow, oral_nitrogen)
 ```
 
 ```r
-wilcox.test(oral_ultralow, oral_nitrogen, alternative = "greater", exact = T)
+wilcox.test(oral_ultralow, oral_nitrogen)
 ```
 
 ```
@@ -82,8 +83,16 @@ wilcox.test(oral_ultralow, oral_nitrogen, alternative = "greater", exact = T)
 ## 	Wilcoxon rank sum test
 ## 
 ## data:  oral_ultralow and oral_nitrogen
-## W = 10, p-value = 0.2857
-## alternative hypothesis: true location shift is greater than 0
+## W = 10, p-value = 0.5714
+## alternative hypothesis: true location shift is not equal to 0
+```
+
+```r
+wilcox.test(oral_ultralow, oral_nitrogen, paired = T)
+```
+
+```
+## Error: 'x' and 'y' must have the same length
 ```
 
 ```r
@@ -101,7 +110,7 @@ ks.test(oral_ultralow, oral_Phen_CL)
 ```
 
 ```r
-wilcox.test(oral_ultralow, oral_Phen_CL, alternative = "greater")
+wilcox.test(oral_ultralow, oral_Phen_CL)
 ```
 
 ```
@@ -109,8 +118,21 @@ wilcox.test(oral_ultralow, oral_Phen_CL, alternative = "greater")
 ## 	Wilcoxon rank sum test
 ## 
 ## data:  oral_ultralow and oral_Phen_CL
-## W = 21, p-value = 0.04762
-## alternative hypothesis: true location shift is greater than 0
+## W = 21, p-value = 0.09524
+## alternative hypothesis: true location shift is not equal to 0
+```
+
+```r
+wilcox.test(oral_ultralow, oral_Phen_CL, paired = T)
+```
+
+```
+## 
+## 	Wilcoxon signed rank test
+## 
+## data:  oral_ultralow and oral_Phen_CL
+## V = 15, p-value = 0.0625
+## alternative hypothesis: true location shift is not equal to 0
 ```
 
 ```r
@@ -128,7 +150,7 @@ ks.test(oral_ultralow, oral_Fresh)
 ```
 
 ```r
-wilcox.test(oral_ultralow, oral_Fresh, alternative = "greater")
+wilcox.test(oral_ultralow, oral_Fresh)
 ```
 
 ```
@@ -136,6 +158,20 @@ wilcox.test(oral_ultralow, oral_Fresh, alternative = "greater")
 ## 	Wilcoxon rank sum test
 ## 
 ## data:  oral_ultralow and oral_Fresh
-## W = 13, p-value = 0.5
-## alternative hypothesis: true location shift is greater than 0
+## W = 13, p-value = 1
+## alternative hypothesis: true location shift is not equal to 0
 ```
+
+```r
+wilcox.test(oral_ultralow, oral_Fresh, paired = T)
+```
+
+```
+## 
+## 	Wilcoxon signed rank test
+## 
+## data:  oral_ultralow and oral_Fresh
+## V = 10, p-value = 0.625
+## alternative hypothesis: true location shift is not equal to 0
+```
+

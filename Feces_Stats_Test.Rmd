@@ -6,8 +6,6 @@ P-Value Test Per BodySite (Ultralow against the world!)
 ```{r,echo=FALSE}
 source("~/git/preservation_stats/scripts/distribution_test.R")
 feces <- read.csv("~/git/preservation_stats/presv_fig1_data/feces_fig1.csv")
-oral <- read.csv("~/git/preservation_stats/presv_fig1_data/oral_fig1.csv")
-skin <- read.csv("~/git/preservation_stats/presv_fig1_data/skin_fig1.csv")
 ```
 
 Feces
@@ -41,9 +39,13 @@ Testing difference significance using Kolmogorov-Smirnov & Wilcoxon Test :
 ```{r}
 ks.test(feces_ultralow,feces_nitrogen)
 wilcox.test(feces_ultralow,feces_nitrogen)
+wilcox.test(feces_ultralow,feces_nitrogen,paired=T)
 
 ks.test(feces_ultralow,feces_Phen_CL)
 wilcox.test(feces_ultralow,feces_Phen_CL)
+wilcox.test(feces_ultralow,feces_Phen_CL,paired=T)
 
 ks.test(feces_ultralow,feces_Fresh)
 wilcox.test(feces_ultralow,feces_Fresh)
+wilcox.test(feces_ultralow,feces_Fresh,paired=T)
+```

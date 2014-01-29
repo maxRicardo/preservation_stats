@@ -60,6 +60,7 @@ Testing difference significance using Kolmogorov-Smirnov & Wilcoxon Test :
 -----------------------------------------------------------------------------
 
 
+
 ```r
 ks.test(skin_ultralow, skin_nitrogen)
 ```
@@ -83,6 +84,19 @@ wilcox.test(skin_ultralow, skin_nitrogen)
 ## 
 ## data:  skin_ultralow and skin_nitrogen
 ## W = 9, p-value = 0.5476
+## alternative hypothesis: true location shift is not equal to 0
+```
+
+```r
+wilcox.test(skin_ultralow, skin_nitrogen, paired = T)
+```
+
+```
+## 
+## 	Wilcoxon signed rank test
+## 
+## data:  skin_ultralow and skin_nitrogen
+## V = 4, p-value = 0.4375
 ## alternative hypothesis: true location shift is not equal to 0
 ```
 
@@ -114,6 +128,19 @@ wilcox.test(skin_ultralow, skin_Phen_CL)
 ```
 
 ```r
+wilcox.test(skin_ultralow, skin_Phen_CL, paired = T)
+```
+
+```
+## 
+## 	Wilcoxon signed rank test
+## 
+## data:  skin_ultralow and skin_Phen_CL
+## V = 15, p-value = 0.0625
+## alternative hypothesis: true location shift is not equal to 0
+```
+
+```r
 
 ks.test(skin_ultralow, skin_Fresh)
 ```
@@ -139,3 +166,17 @@ wilcox.test(skin_ultralow, skin_Fresh)
 ## W = 13, p-value = 1
 ## alternative hypothesis: true location shift is not equal to 0
 ```
+
+```r
+wilcox.test(skin_ultralow, skin_Fresh, paired = T)
+```
+
+```
+## 
+## 	Wilcoxon signed rank test
+## 
+## data:  skin_ultralow and skin_Fresh
+## V = 7, p-value = 1
+## alternative hypothesis: true location shift is not equal to 0
+```
+

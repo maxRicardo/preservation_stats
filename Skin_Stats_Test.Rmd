@@ -6,8 +6,6 @@ P-Value Test Per BodySite (Ultralow against the world!)
 ```{r,echo=FALSE}
 source("~/git/preservation_stats/scripts/distribution_test.R")
 skin <- read.csv("~/git/preservation_stats/presv_fig1_data/skin_fig1.csv")
-oral <- read.csv("~/git/preservation_stats/presv_fig1_data/oral_fig1.csv")
-skin <- read.csv("~/git/preservation_stats/presv_fig1_data/skin_fig1.csv")
 ```
 
 skin
@@ -38,12 +36,17 @@ shapiro.test(skin_Fresh)
 Testing difference significance using Kolmogorov-Smirnov & Wilcoxon Test :  
 -----------------------------------------------------------------------------
 
+
 ```{r}
 ks.test(skin_ultralow,skin_nitrogen)
 wilcox.test(skin_ultralow,skin_nitrogen)
+wilcox.test(skin_ultralow,skin_nitrogen,paired=T)
 
 ks.test(skin_ultralow,skin_Phen_CL)
 wilcox.test(skin_ultralow,skin_Phen_CL)
+wilcox.test(skin_ultralow,skin_Phen_CL,paired=T)
 
 ks.test(skin_ultralow,skin_Fresh)
 wilcox.test(skin_ultralow,skin_Fresh)
+wilcox.test(skin_ultralow,skin_Fresh,paired=T)
+```

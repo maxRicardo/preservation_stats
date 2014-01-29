@@ -247,6 +247,12 @@ feces_Fresh = parse_vector(feces, 4)
 ## alternative hypothesis: true location shift is not equal to 0
 </code></pre>
 
+<pre><code class="r">wilcox.test(feces_ultralow, feces_nitrogen, paired = T)
+</code></pre>
+
+<pre><code>## Error: &#39;x&#39; and &#39;y&#39; must have the same length
+</code></pre>
+
 <pre><code class="r">
 ks.test(feces_ultralow, feces_Phen_CL)
 </code></pre>
@@ -270,6 +276,17 @@ ks.test(feces_ultralow, feces_Phen_CL)
 ## alternative hypothesis: true location shift is not equal to 0
 </code></pre>
 
+<pre><code class="r">wilcox.test(feces_ultralow, feces_Phen_CL, paired = T)
+</code></pre>
+
+<pre><code>## 
+##  Wilcoxon signed rank test
+## 
+## data:  feces_ultralow and feces_Phen_CL
+## V = 7, p-value = 1
+## alternative hypothesis: true location shift is not equal to 0
+</code></pre>
+
 <pre><code class="r">
 ks.test(feces_ultralow, feces_Fresh)
 </code></pre>
@@ -290,6 +307,17 @@ ks.test(feces_ultralow, feces_Fresh)
 ## 
 ## data:  feces_ultralow and feces_Fresh
 ## W = 15, p-value = 0.6905
+## alternative hypothesis: true location shift is not equal to 0
+</code></pre>
+
+<pre><code class="r">wilcox.test(feces_ultralow, feces_Fresh, paired = T)
+</code></pre>
+
+<pre><code>## 
+##  Wilcoxon signed rank test
+## 
+## data:  feces_ultralow and feces_Fresh
+## V = 9, p-value = 0.8125
 ## alternative hypothesis: true location shift is not equal to 0
 </code></pre>
 
